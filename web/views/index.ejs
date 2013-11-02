@@ -20,7 +20,8 @@
                 <div class="content">
                     <form class="pure-form">
                         <fieldset>
-                            <input type="text" placeholder="Yahoo" class="pure-input">
+                            <input type="text" placeholder="Click to Select File" class="pure-input pure-fake-file">
+                            <input type="file" class="pure-input pure-file hide">
                             <button type="submit" class="pure-button pure-button-primary">
                                 Upload
                                 <i class="fa fa-upload"></i>
@@ -32,5 +33,6 @@
         </div>
 
         <% include includeJavascripts %>
+        <script src="/javascripts/index.js"></script>
     </body>
 </html>
