@@ -6,6 +6,7 @@ import market_proto
 from androidmarket import MarketSession
 
 import sys
+import json
 
 if __name__ == "__main__":
     # Start a new session and login
@@ -17,8 +18,19 @@ if __name__ == "__main__":
     query = sys.argv[1]
     results = session.searchApp(query)
     if len(results) == 0:
-        print "No results found"
+        print json.dumps({"error": "Application not found."});
         exit()
+
+    apklist = []
+    for app in results:
+        apk = {}
+        apk["version"] = app["version"]
+        apk["title"] = app["title"]
+        apk["id"] = app["id"]
+        apk["packagename"] = app["packagename"]
+        apklist.append(apk)
+    print json.dumps(apklist)
+    exit()
 
     # Check if pkg name match
     found = 0

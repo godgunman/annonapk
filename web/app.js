@@ -8,6 +8,7 @@ var express = require('express'),
     passport = require('passport'),
     index = require('./routes/index'),
     user = require('./routes/user'),
+    search = require('./routes/api/search.js');
     fs = require('fs'),
     mkdirp = require('mkdirp');
 
@@ -125,6 +126,8 @@ app.post('/user/login', user.postLogin);
 
 app.get('/user/logout', user.postLogin); 
 
+app.get('/api/search', search.index);
+
 // we need the fs module for moving the uploaded files
 app.post('/apk/upload', function(req, res) {
     console.log(req.files);
@@ -145,7 +148,6 @@ app.post('/apk/upload', function(req, res) {
         });
     });
 });
-
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
