@@ -11,3 +11,9 @@ exports.pricing = function(req, res) {
         title: appName
     });
 };
+
+exports.apkinfo = function(req, res) {
+    res.render('apkinfo', {
+        title: appName
+    });
+};

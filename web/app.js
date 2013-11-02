@@ -52,6 +52,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', index.index);
 app.get('/pricing', index.pricing);
+app.get('/apkinfo', index.apkinfo);
 
 // GET /auth/twitter
 //   Use passport.authenticate() as route middleware to authenticate the
