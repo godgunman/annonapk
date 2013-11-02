@@ -49,21 +49,22 @@ def androguardAnalyze(f_name, f_md5):
         # create dir
         mkdir_p(dir_name)
         with open(src_name, "ab") as f:
-            f.write(current_class.get_access_flags_string() + " class " + path.replace('/', '.'))
+            f.write("{} class {}".format(current_class.get_access_flags_string(), path.replace('/', '.')))
             if current_class.get_superclassname() is None or current_class.get_superclassname() == "":
-                f.write(" extends " +  current_class.get_superclassname())
+                f.write(" extends {}".format(current_class.get_superclassname()))
             f.write(" {\n")
             f.write("// class fields \n")
             for field in current_class.get_fields():
                 classname = field.get_class_name()[1:-1].replace('/', '.')
                 f.write(field.get_access_flags_string() + " " + field.get_descriptor() + " " + classname + "." + field.get_name() + "\n")
+                f.write("{} {} {}.{}\n".format(field.get_access_flags_string(), field.get_descriptor(), classname, field.get_name()))
             # dump source code
             f.write("// class methods \n")
             for method in current_class.get_methods():
                 if method.get_code() == None:
                     continue
                 classname = method.get_class_name()[1:-1].replace('/', '.')
-                f.write("// " + method.get_access_flags_string() + " " +  classname + "." +  method.get_name() + method.get_descriptor() + "\n")
+                f.write("// {} {}.{}{}\n".format(method.get_access_flags_string(), classname, method.get_name(), method.get_descriptor()))
                 f.write(decompileMethod(dx, method))
             f.write("}\n")
     return getAPKInformationJson(a, d)
