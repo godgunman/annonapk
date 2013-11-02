@@ -8,7 +8,8 @@ var express = require('express'),
     passport = require('passport'),
     index = require('./routes/index'),
     user = require('./routes/user'),
-    search = require('./routes/api/search.js');
+    analyzeApk = require('./routes/api/analyze_apk')
+    search = require('./routes/api/search');
     fs = require('fs'),
     mkdirp = require('mkdirp');
 
@@ -129,25 +130,7 @@ app.get('/user/logout', user.postLogin);
 app.get('/api/search', search.index);
 
 // we need the fs module for moving the uploaded files
-app.post('/apk/upload', function(req, res) {
-    console.log(req.files);
-    // get the temporary location of the file
-    var tmp_path = req.files.apk.path;
-    // set where the file should actually exists - in this case it is in the "images" directory
-    
-    mkdirp.sync('./apk/files/');
-
-    var target_path = './apk/files/' + req.files.apk.name;
-    // move the file from the temporary location to the intended location
-    fs.rename(tmp_path, target_path, function(err) {
-        if (err) throw err;
-        // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
-        fs.unlink(tmp_path, function() {
-            if (err) throw err;
-            res.send('File uploaded to: ' + target_path + ' - ' + req.files.apk.size + ' bytes');
-        });
-    });
-});
+app.post('/apk/upload', analyzeApk.run);
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
