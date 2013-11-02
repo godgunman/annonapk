@@ -8,20 +8,11 @@
         <link rel='stylesheet' type="text/css" href='//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css'>
         <link rel='stylesheet' type="text/css" href='/stylesheets/pure-min.css'>
         <link rel='stylesheet' type="text/css" href='/stylesheets/style.css'>
+        <link rel='stylesheet' type="text/css" href='/stylesheets/index.css'>
     </head>
     <body>
         <div class="pure-g-r">
-            <nav id="menu" class="pure-u">
-                <div class="pure-menu pure-menu-open">
-                    <a class="pure-menu-heading" href="/"><%= title %></a>
-
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">API</a></li>
-                    </ul>
-                </div>
-            </nav>
-
+            <% include includeNavbar %>
             <div class="pure-u-1">
                 <header class="header">
                     <h1>Extract APK</h1>
