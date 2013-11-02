@@ -19,8 +19,6 @@ var dbSetup = require('./store/setup');
 var pass = require('./config/pass');
 
 var app = express();
-// app.get('/apk', index.index);
-// app.get('/apk/*.java', hightlight.hightlight);
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -34,8 +32,9 @@ app.use(express.cookieParser('your secret here'));
 app.use(express.session());
 app.use(require('less-middleware')({ src: __dirname + '/public' }));
 app.use(express.static(path.join(__dirname, 'public')));
+
 // app.use(express.static(path.join(__dirname, '../apk')));
-// app.use(express.directory(path.join(__dirname, '../apk')));
+//console.log(path.join(__dirname, 'apk'))
 
 app.use(express.bodyParser());
 
@@ -49,6 +48,13 @@ app.use(app.router);
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+app.get('/apk', function(req, res) {
+  res.redirect('/');
+});
+app.use('/apk',express.directory(path.join(__dirname, '../apk')), {icons:true});
+app.get('/apk/*.java', hightlight.hightlight);
+
 
 app.get('/', index.index);
 app.get('/pricing', index.pricing);
