@@ -8,6 +8,7 @@ var express = require('express'),
     passport = require('passport'),
     index = require('./routes/index'),
     user = require('./routes/user'),
+    hightlight = require('./routes/highlight'),
     analyzeApk = require('./routes/api/analyze_apk'),
     search = require('./routes/api/search'),
     download = require('./routes/api/download'),
@@ -20,7 +21,7 @@ var pass = require('./config/pass');
 var app = express();
 app.get('/', index.index);
 app.get('/apk', index.index);
-app.get('/apk/*.java', index.index);
+app.get('/apk/*.java', hightlight.hightlight);
 
 // all environments
 app.set('port', process.env.PORT || 3000);
