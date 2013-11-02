@@ -8,9 +8,9 @@ var express = require('express'),
     passport = require('passport'),
     index = require('./routes/index'),
     user = require('./routes/user'),
-    analyzeApk = require('./routes/api/analyze_apk')
-    search = require('./routes/api/search');
-    download = require('./routes/api/download');
+    analyzeApk = require('./routes/api/analyze_apk'),
+    search = require('./routes/api/search'),
+    download = require('./routes/api/download'),
     fs = require('fs'),
     mkdirp = require('mkdirp');
 
@@ -18,12 +18,15 @@ var dbSetup = require('./store/setup');
 var pass = require('./config/pass');
 
 var app = express();
+app.get('/', index.index);
+app.get('/apk', index.index);
+app.get('/apk/*.java', index.index);
 
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-app.use(express.favicon(path.join(__dirname, '/puclib/images/icon.png')));
+app.use(express.favicon(__dirname + '/public/images/icon.png'));
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -31,6 +34,8 @@ app.use(express.cookieParser('your secret here'));
 app.use(express.session());
 app.use(require('less-middleware')({ src: __dirname + '/public' }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../apk')));
+app.use(express.directory(path.join(__dirname, '../apk')));
 
 app.use(express.bodyParser());
 
@@ -45,7 +50,6 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', index.index);
 app.get('/pricing', index.pricing);
 
 // GET /auth/twitter
