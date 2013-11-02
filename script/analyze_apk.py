@@ -5,7 +5,8 @@ from dm4 import read_apk
 import sys, hashlib, os, errno
 
 # Global variables
-APK_ROOT = "/home/atdog/AnnonaPK/apk/"
+base_dir = os.path.dirname(__file__)
+APK_ROOT = base_dir + "/../apk/"
 
 def md5Checksum(filePath):
     with open(filePath, 'rb') as fh:
@@ -51,13 +52,13 @@ def androguardAnalyze(f_name, f_md5):
                 continue
 
             with open(src_name, "ab") as f:
-                f.write("// " + method.get_name() + method.get_descriptor() + "\n")
+                f.write("// " + method.get_class_name() + "->" + method.get_name() + method.get_descriptor() + "\n")
                 f.write(decompileMethod(dx, method))
 
 def apktoolAnalyze(f_name, f_md5):
     from subprocess import call
     dir_name = APK_ROOT + f_md5 + "/"
-    call(["/home/atdog/jdk1.7.0_45/bin/java", "-jar", "/home/atdog/AnnonaPK/script/apktool.jar", "d", "-f", f_name, dir_name])
+    call(["/home/atdog/jdk1.7.0_45/bin/java", "-jar", base_dir + "/apktool.jar", "d", "-f", f_name, dir_name])
 
 def main():
     if len(sys.argv) != 2:
