@@ -8,6 +8,14 @@
   "dependencies": {
     "express": "3.4.4",
     "ejs": "*",
-    "less-middleware": "*"
+    "less-middleware": "*",
+    "mongoose": "3.5.7",
+    "passport": "*",
+    "passport-local": "*",
+    "passport-twitter": "*",
+    "passport-google-oauth": "*",
+    "passport-facebook": "*",
+    "connect-ensure-login": "*",
+    "bcrypt-nodejs": "*"
   }
 }
