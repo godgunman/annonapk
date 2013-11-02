@@ -1,0 +1,53 @@
+/* layout */
+.pure-u-1 {
+  margin: 0px auto;
+  padding-top: 120px;
+  width: 70%;
+}
+.pure-u-1 .pricing {
+  width: 100%;
+}
+.pure-u-1 .pricing .pricing-plan > .container {
+  margin: 0px auto;
+  width: 90%;
+}
+.pure-u-1 .pricing .pricing-plan > .container .pricing-header,
+.pure-u-1 .pricing .pricing-plan > .container .pricing-details,
+.pure-u-1 .pricing .pricing-plan > .container .pricing-footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.pure-u-1 .pricing .pricing-plan > .container .pricing-header {
+  text-align: center;
+}
+.pure-u-1 .pricing .pricing-plan > .container .pricing-header .price {
+  font-weight: 300;
+}
+.pure-u-1 .pricing .pricing-plan > .container .pricing-header .price .price-value {
+  font-size: 60px;
+}
+.pure-u-1 .pricing .pricing-plan > .container .pricing-details {
+  font-weight: 300;
+  list-style-type: none;
+}
+.pure-u-1 .pricing .pricing-plan > .container .pricing-footer button {
+  margin: 0 15%;
+  width: 70%;
+}
+.pure-u-1 .pricing .pricing-plan > .container .pricing-footer button .value {
+  font-family: 'Lato', 'Helvetica', sans-serif;
+  font-weight: 300;
+}
+/* theme */
+.pricing .pricing-plan#plan-free > .container {
+  background-color: #ccc1ab;
+}
+.pricing .pricing-plan#plan-pro > .container {
+  background-color: #bf2973;
+}
+.pricing .pricing-plan#plan-enterprise > .container {
+  background-color: #695f56;
+}
+.pricing .pricing-plan .pricing-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
