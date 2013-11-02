@@ -15,7 +15,7 @@ exports.run = function(req, res) {
         // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
         fs.unlink(tmp_path, function() {
             if (err) throw err;
-            res.send('File uploaded to: ' + target_path + ' - ' + req.files.apk.size + ' bytes');
+//            res.send('File uploaded to: ' + target_path + ' - ' + req.files.apk.size + ' bytes');
         });
 
         var callback = function(error, stdout, stderr) {
@@ -23,7 +23,9 @@ exports.run = function(req, res) {
             res.write(stdout);
             res.end();
         };
-        exec("../script/analyze_apk.py " + target_path, callback);
+        var command = "../script/analyze_apk.py " + target_path;
+        exec(command, callback);
+        console.log(command);
     });
 };
 
