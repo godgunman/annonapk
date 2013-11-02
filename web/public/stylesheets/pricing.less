@@ -1,0 +1,81 @@
+/* layout */
+.pure-u-1 {
+    margin: 0px auto;
+    padding-top: 120px;
+    width: 70%;
+
+    .pricing {
+        width: 100%;
+
+        .pricing-plan {
+            >.container {
+                margin: 0px auto;
+                width: 90%;
+
+                .pricing-header, .pricing-details, .pricing-footer {
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                }
+
+                .pricing-header {
+                    text-align: center;
+
+                    .price {
+                        font-weight: 300;
+
+                        .price-value {
+                            font-size: 60px;
+                        }
+                    }
+                }
+
+                .pricing-details {
+                    font-weight: 300;
+                    list-style-type: none;
+
+                    li {
+                    }
+                }
+
+                .pricing-footer {
+                    button {
+                        margin: 0 15%;
+                        width: 70%;
+
+                        .value {
+                            font-family: 'Lato', 'Helvetica', sans-serif;
+                            font-weight: 300;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* theme */
+.pricing {
+    .pricing-plan {
+        &#plan-free {
+            >.container {
+                background-color: #ccc1ab;
+            }
+        }
+
+        &#plan-pro {
+            >.container {
+                background-color: #bf2973;
+            }
+        }
+
+        &#plan-enterprise {
+            >.container {
+                background-color: #695f56;
+            }
+        }
+
+        .pricing-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+        }
+    }
+}

@@ -42,7 +42,7 @@ def androguardAnalyze(f_name, f_md5):
 
     for current_class in d.get_classes():
         path = current_class.get_name()[1:-1]
-        dir_name = APK_ROOT + f_md5 + "/src/" + os.path.dirname(path) + "/"
+        dir_name = APK_ROOT + "/analytics/" + f_md5 + "/src/" + os.path.dirname(path) + "/"
         src_name = dir_name + os.path.basename(path) + ".java"
         # create dir
         mkdir_p(dir_name)
@@ -57,7 +57,7 @@ def androguardAnalyze(f_name, f_md5):
 
 def apktoolAnalyze(f_name, f_md5):
     from subprocess import call
-    dir_name = APK_ROOT + f_md5 + "/"
+    dir_name = APK_ROOT + "/analytics/" + f_md5 + "/"
     call(["/home/atdog/jdk1.7.0_45/bin/java", "-jar", base_dir + "/apktool.jar", "d", "-f", f_name, dir_name])
 
 def main():
