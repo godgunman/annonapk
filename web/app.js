@@ -52,9 +52,10 @@ if ('development' == app.get('env')) {
 app.get('/apk', function(req, res) {
   res.redirect('/');
 });
-app.use('/apk',express.directory(path.join(__dirname, '../apk')), {icons:true});
-app.get('/apk/*.java', hightlight.hightlight);
 
+app.get('/apk/*.java', hightlight.hightlight);
+app.use('/apk',express.directory(path.join(__dirname, '../apk')), {icons:true});
+app.use('/apk',express.static(path.join(__dirname, '../apk')));
 
 app.get('/', index.index);
 app.get('/pricing', index.pricing);
