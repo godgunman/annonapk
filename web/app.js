@@ -11,7 +11,6 @@ var express = require('express'),
     analyzeApk = require('./routes/api/analyze_apk'),
     search = require('./routes/api/search'),
     download = require('./routes/api/download'),
-    walker = require('./routes/walker'),
     fs = require('fs'),
     mkdirp = require('mkdirp');
 
@@ -27,7 +26,7 @@ app.get('/apk/*.java', index.index);
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-app.use(express.favicon(path.join(__dirname, '/puclib/images/icon.png')));
+app.use(express.favicon(__dirname + '/public/images/icon.png'));
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
