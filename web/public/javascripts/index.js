@@ -32,6 +32,7 @@ $(function() {
         }
         upload();
         $('#loading').fadeIn();
+        $('#loading').css("display","block");
         $('.pure-fake-file').prop('disabled','true');
         $('.pure-button').prop('disabled','true')
         return false;

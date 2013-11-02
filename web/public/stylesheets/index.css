@@ -29,6 +29,6 @@
   padding: 8px;
 }
 #loading {
-    display: block;
-    margin: 0.5em auto;
+    display: None;
+    margin: 0.5em auto !important;
 }
