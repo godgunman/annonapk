@@ -7,6 +7,7 @@ $(function() {
 
     $('.pure-file')
         .change(function() {
-            $('.pure-fake-file').val($(this).val());
+            var $file = $(this);
+            $('.pure-fake-file').val($file.val());
         });
 });
