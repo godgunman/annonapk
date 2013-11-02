@@ -6,6 +6,7 @@
         <title><%= title %></title>
 
         <link rel='stylesheet' type="text/css" href='/stylesheets/pure-min.css'>
+        <link rel='stylesheet' type="text/css" href='/stylesheets/font-awesome.min.css'>
         <link rel='stylesheet' type="text/css" href='/stylesheets/style.css'>
     </head>
     <body>
@@ -22,7 +23,21 @@
             </nav>
 
             <div class="pure-u-1">
-                Hello
+                <header class="header">
+                    <h1>Extract APK</h1>
+                </header>
+
+                <div class="content">
+                    <form class="pure-form">
+                        <fieldset>
+                            <input type="text" placeholder="Yahoo" class="pure-input">
+                            <button type="submit" class="pure-button pure-button-primary">
+                                Search
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
         </div>
     </body>
