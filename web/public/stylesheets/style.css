@@ -1,4 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Cuprum);
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
 /* layout */
 .pure-g-r {
   padding-left: 150px;
@@ -17,9 +19,39 @@ nav .pure-menu .pure-menu-heading {
   margin-bottom: 18px;
 }
 .pure-u-1 {
+  padding-top: 200px;
   width: 100%;
 }
+.pure-u-1 .header {
+  font-size: 110%;
+  text-align: center;
+}
+.pure-u-1 .content {
+  width: 60%;
+  margin: 0 auto;
+}
+.pure-u-1 .content .pure-form {
+  width: 410px;
+  margin: 0 auto;
+}
+.pure-u-1 .content .pure-form .pure-input {
+  width: 280px;
+}
+.pure-u-1 .content .pure-form .pure-button {
+  margin-left: 2px;
+  width: 120px;
+}
+.pure-u-1 .content .pure-form .pure-input,
+.pure-u-1 .content .pure-form .pure-button {
+  font-size: 16px;
+  padding: 8px;
+}
 /* theme */
+body,
+.pure-g [class*="pure-u"],
+.pure-g-r [class*="pure-u"] {
+  font-family: 'Lato', 'Helvetica', sans-serif;
+}
 nav {
   background-color: #3e3232;
 }
@@ -32,9 +64,11 @@ nav .pure-menu .pure-menu-heading {
   border-bottom: 1px solid #695f56;
   font-family: 'Cuprum', 'Helvetica', sans-serif;
   font-size: 28px;
+  text-transform: capitalize;
 }
 nav .pure-menu li a {
   color: #ccc1ab;
+  font-weight: 300;
 }
 nav .pure-menu li a:hover {
   background-color: #695f56;
