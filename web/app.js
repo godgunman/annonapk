@@ -10,6 +10,7 @@ var express = require('express'),
     user = require('./routes/user'),
     analyzeApk = require('./routes/api/analyze_apk')
     search = require('./routes/api/search');
+    download = require('./routes/api/download');
     fs = require('fs'),
     mkdirp = require('mkdirp');
 
@@ -128,10 +129,11 @@ app.post('/user/login', user.postLogin);
 
 app.get('/user/logout', user.postLogin); 
 
-app.get('/api/search', search.index);
+app.get('/api/apk/search', search.index);
+app.get('/api/apk/download', download.index);
 
 // we need the fs module for moving the uploaded files
-app.post('/apk/upload', analyzeApk.run);
+app.post('/api/apk/analyze', analyzeApk.run);
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));

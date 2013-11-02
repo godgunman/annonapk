@@ -6,6 +6,8 @@ import sys, hashlib, os, errno
 
 # Global variables
 base_dir = os.path.dirname(__file__)
+if base_dir is "":
+    base_dir = os.getcwd()
 APK_ROOT = base_dir + "/../apk/"
 
 def md5Checksum(filePath):
@@ -68,11 +70,19 @@ def main():
     f_name = sys.argv[1]
     f_md5 = md5Checksum(sys.argv[1]);
 
-    dir_name = APK_ROOT + "/analytics/" + f_md5 + "/"
-    if not os.path.exists(dir_name): 
+    try:
+        dir_name = APK_ROOT + "/analytics/" + f_md5 + "/"
+        if os.path.exists(dir_name): 
+            print '{"result":"Analytics already exist."}'
+            sys.exit(1)
         # force to delete directory by command (apktool d -f )
         apktoolAnalyze(f_name, f_md5)
         androguardAnalyze(f_name, f_md5)
+        print '{"result":"Done."}'
+    except SystemExit:
+        pass
+    except:
+        print '{"result":"Parse Error."}'
 
 if __name__ == "__main__":
     main()
