@@ -4,7 +4,7 @@ import androlyze
 from androlyze import AnalyzeAPK
 import os, sys
 
-apk_session_dir = "/home/atdog/AnnonaPK/script/session/"
+apk_session_dir = os.path.dirname(__file__) + "/session/"
 sys.setrecursionlimit(100000)
 
 def read_apk(apk_name, md5):
