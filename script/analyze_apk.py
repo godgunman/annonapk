@@ -49,15 +49,23 @@ def androguardAnalyze(f_name, f_md5):
         # create dir
         mkdir_p(dir_name)
         with open(src_name, "ab") as f:
+            f.write(current_class.get_access_flags_string() + " class " + path.replace('/', '.'))
+            if current_class.get_superclassname() is None or current_class.get_superclassname() == "":
+                f.write(" extends " +  current_class.get_superclassname())
+            f.write(" {\n")
             f.write("// class fields \n")
             for field in current_class.get_fields():
-                f.write(field.get_class_name() + "->" + field.get_name() + field.get_descriptor() + "\n")
+                classname = field.get_class_name()[1:-1].replace('/', '.')
+                f.write(field.get_access_flags_string() + " " + field.get_descriptor() + " " + classname + "." + field.get_name() + "\n")
             # dump source code
+            f.write("// class methods \n")
             for method in current_class.get_methods():
                 if method.get_code() == None:
                     continue
-                f.write("// " + method.get_class_name() + "->" + method.get_name() + method.get_descriptor() + "\n")
+                classname = method.get_class_name()[1:-1].replace('/', '.')
+                f.write("// " + method.get_access_flags_string() + " " +  classname + "." +  method.get_name() + method.get_descriptor() + "\n")
                 f.write(decompileMethod(dx, method))
+            f.write("}\n")
     return getAPKInformationJson(a, d)
 
 def apktoolAnalyze(f_name, f_md5):
