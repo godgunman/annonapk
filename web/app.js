@@ -129,8 +129,8 @@ app.post('/user/login', user.postLogin);
 
 app.get('/user/logout', user.postLogin); 
 
-app.get('/api/search', search.index);
-app.get('/api/download', download.index);
+app.get('/api/apk/search', search.index);
+app.get('/api/apk/download', download.index);
 
 // we need the fs module for moving the uploaded files
 app.post('/apk/upload', analyzeApk.run);
