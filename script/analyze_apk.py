@@ -56,14 +56,14 @@ def androguardAnalyze(f_name, f_md5):
             with open(src_name, "ab") as f:
                 f.write("// " + method.get_class_name() + "->" + method.get_name() + method.get_descriptor() + "\n")
                 f.write(decompileMethod(dx, method))
-    return getAPKInformationJson(a,d,dx)
+    return getAPKInformationJson(a, d)
 
 def apktoolAnalyze(f_name, f_md5):
     from subprocess import call
     dir_name = APK_ROOT + "/analytics/" + f_md5 + "/"
     call(["/home/atdog/jdk1.7.0_45/bin/java", "-jar", base_dir + "/apktool.jar", "d", "-f", f_name, dir_name])
 
-def getAPKInformationJson(a, d, dx):
+def getAPKInformationJson(a, d):
     result = {}
     result['package'] = a.get_package()
     result['class_count'] = len(d.get_classes())
@@ -88,12 +88,14 @@ def main():
     try:
         dir_name = APK_ROOT + "/analytics/" + f_md5 + "/"
         if os.path.exists(dir_name): 
-            print '{"result":"Analytics already exist."}'
+            a, d, dx = read_apk(f_name, f_md5)
+            result = getAPKInformationJson(a, d)
+            print '{"result":"Analytics already exist.", "apk_info":%s}' % result
             sys.exit(1)
         # force to delete directory by command (apktool d -f )
         apktoolAnalyze(f_name, f_md5)
         result = androguardAnalyze(f_name, f_md5)
-        print '{"result":"Done.", "apk_info": %s}' % result
+        print '{"result":"Done.", "apk_info":%s}' % result
     except SystemExit:
         pass
     except:
