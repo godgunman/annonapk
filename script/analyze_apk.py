@@ -101,12 +101,12 @@ def main():
         if os.path.exists(dir_name): 
             a, d, dx = read_apk(f_name, f_md5)
             result = getAPKInformationJson(a, d)
-            print '{"result":"Analytics already exist.", "apk_info":%s}' % result
+            print '{"result":"Analytics already exist.", "id":"' + f_md5 + '" , "apk_info":' + result + '}'
             sys.exit(1)
         # force to delete directory by command (apktool d -f )
         apktoolAnalyze(f_name, f_md5)
         result = androguardAnalyze(f_name, f_md5)
-        print '{"result":"Done.", "apk_info":%s}' % result
+        print '{"result":"Done.", "id":"' + f_md5 + '", "apk_info":' + result + '}'
     except SystemExit:
         pass
     except:
