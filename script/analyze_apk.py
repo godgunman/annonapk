@@ -48,12 +48,14 @@ def androguardAnalyze(f_name, f_md5):
         src_name = dir_name + os.path.basename(path) + ".java"
         # create dir
         mkdir_p(dir_name)
-        # dump source code
-        for method in current_class.get_methods():
-            if method.get_code() == None:
-                continue
-
-            with open(src_name, "ab") as f:
+        with open(src_name, "ab") as f:
+            f.write("// class fields \n")
+            for field in current_class.get_fields():
+                f.write(field.get_class_name() + "->" + field.get_name() + field.get_descriptor() + "\n")
+            # dump source code
+            for method in current_class.get_methods():
+                if method.get_code() == None:
+                    continue
                 f.write("// " + method.get_class_name() + "->" + method.get_name() + method.get_descriptor() + "\n")
                 f.write(decompileMethod(dx, method))
     return getAPKInformationJson(a, d)
