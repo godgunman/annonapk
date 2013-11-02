@@ -29,6 +29,10 @@
 .pure-u-1 .pricing .pricing-plan > .container .pricing-details {
   font-weight: 300;
   list-style-type: none;
+  padding: 0px 20px;
+}
+.pure-u-1 .pricing .pricing-plan > .container .pricing-details li {
+  padding: 5px 0px;
 }
 .pure-u-1 .pricing .pricing-plan > .container .pricing-footer button {
   margin: 0 15%;

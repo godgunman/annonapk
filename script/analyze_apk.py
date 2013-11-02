@@ -68,6 +68,10 @@ def main():
     f_name = sys.argv[1]
     f_md5 = md5Checksum(sys.argv[1]);
 
+    dir_name = APK_ROOT + "/analytics/" + f_md5 + "/"
+    if os.path.exists(dir_name): 
+        print "analytics already exist."
+        sys.exit(1)
     # force to delete directory by command (apktool d -f )
     apktoolAnalyze(f_name, f_md5)
     androguardAnalyze(f_name, f_md5)
