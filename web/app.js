@@ -19,9 +19,9 @@ var dbSetup = require('./store/setup');
 var pass = require('./config/pass');
 
 var app = express();
-app.get('/', index.index);
-app.get('/apk', index.index);
-app.get('/apk/*.java', hightlight.hightlight);
+// app.get('/', index.index);
+// app.get('/apk', index.index);
+// app.get('/apk/*.java', hightlight.hightlight);
 
 // all environments
 app.set('port', process.env.PORT || 3000);

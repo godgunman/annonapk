@@ -1,4 +1,6 @@
-var exec = require('child_process').exec;
+var exec = require('child_process').exec,
+    mkdirp = require('mkdirp'),
+    fs = require('fs');
 
 exports.run = function(req, res) {
     console.log(req.files);
