@@ -6,7 +6,7 @@
         <title><%= title %></title>
 
         <% include includeStylesheets %>
-        <link rel='stylesheet' type="text/css" href='/stylesheets/index.css'>
+        <link rel='stylesheet' href='/stylesheets/index.css'>
     </head>
     <body>
         <div class="pure-g-r">
@@ -22,13 +22,15 @@
                         <fieldset>
                             <input type="text" placeholder="Yahoo" class="pure-input">
                             <button type="submit" class="pure-button pure-button-primary">
-                                Search
-                                <i class="fa fa-search"></i>
+                                Upload
+                                <i class="fa fa-upload"></i>
                             </button>
                         </fieldset>
                     </form>
                 </div>
             </div>
         </div>
+
+        <% include includeJavascripts %>
     </body>
 </html>

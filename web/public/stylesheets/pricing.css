@@ -1,6 +1,6 @@
 /* layout */
 .pure-u-1 {
-  margin: 0px auto;
+  margin: 0px 15%;
   padding-top: 120px;
   width: 70%;
 }
@@ -34,13 +34,21 @@
 .pure-u-1 .pricing .pricing-plan > .container .pricing-details li {
   padding: 5px 0px;
 }
-.pure-u-1 .pricing .pricing-plan > .container .pricing-footer button {
+.pure-u-1 .pricing .pricing-plan > .container .pricing-footer {
+  width: 100%;
+}
+.pure-u-1 .pricing .pricing-plan > .container .pricing-footer .pure-button {
+  padding: .5em 0px;
   margin: 0 15%;
   width: 70%;
 }
-.pure-u-1 .pricing .pricing-plan > .container .pricing-footer button .value {
+.pure-u-1 .pricing .pricing-plan > .container .pricing-footer .pure-button .value {
   font-family: 'Lato', 'Helvetica', sans-serif;
   font-weight: 300;
+}
+.modal .modal-body {
+  padding-left: 50px;
+  padding-right: 50px;
 }
 /* theme */
 .pricing .pricing-plan#plan-free > .container {
