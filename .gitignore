@@ -2,5 +2,5 @@
 *.swp
 apk
 *.pyc
-./script/session/
+script/session/
 *.class
