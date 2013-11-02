@@ -7,7 +7,8 @@ var express = require('express'),
     path = require('path'),
     passport = require('passport'),
     index = require('./routes/index'),
-    user = require('./routes/user')
+    user = require('./routes/user'),
+    search = require('./routes/api/search.js');
 
 var dbSetup = require('./store/setup');
 var pass = require('./config/pass');
@@ -120,6 +121,8 @@ app.get('/user/login', user.getLogin);
 app.post('/user/login', user.postLogin); 
 
 app.get('/user/logout', user.postLogin); 
+
+app.get('/api/search', search.index);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
