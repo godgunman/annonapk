@@ -18,7 +18,7 @@ var app = express();
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-app.use(express.favicon());
+app.use(express.favicon(path.join(__dirname, '/puclib/images/icon.png')));
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -39,6 +39,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', index.index);
+app.get('/pricing', index.pricing);
 
 // GET /auth/twitter
 //   Use passport.authenticate() as route middleware to authenticate the

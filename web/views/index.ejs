@@ -5,14 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><%= title %></title>
 
-        <link rel='stylesheet' type="text/css" href='//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css'>
-        <link rel='stylesheet' type="text/css" href='/stylesheets/pure-min.css'>
-        <link rel='stylesheet' type="text/css" href='/stylesheets/style.css'>
+        <% include includeStylesheets %>
         <link rel='stylesheet' type="text/css" href='/stylesheets/index.css'>
     </head>
     <body>
         <div class="pure-g-r">
             <% include includeNavbar %>
+
             <div class="pure-u-1">
                 <header class="header">
                     <h1>Extract APK</h1>

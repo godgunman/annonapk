@@ -1,23 +1,84 @@
+@import url(http://fonts.googleapis.com/css?family=Cuprum);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+
 /* layout */
+.pure-g-r {
+    padding-left: 150px;
+    left: 0;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+
+    left: 150px;
+    width: 150px;
+    margin-left: -150px;
+
+    overflow-y: auto;
+
+    .pure-menu {
+        .pure-menu-heading {
+            margin-bottom: 18px;
+        }
+    }
+}
+
 .pure-u-1 {
-    padding-top: 200px;
+    width: 100%;
+
+    .header {
+        font-size: 110%;
+        text-align: center;
+    }
 
     .content {
-        .pure-form {
-            width: 410px;
-            margin: 0 auto;
+        width: 60%;
+        margin: 0 auto;
 
-            .pure-input {
-                width: 280px;
+    }
+}
+
+/* theme */
+body, .pure-g [class *= "pure-u"], .pure-g-r [class *= "pure-u"] {
+    font-family: 'Lato', 'Helvetica', sans-serif;
+}
+
+nav {
+    background-color: #3e3232;
+
+    .pure-menu {
+        &.pure-menu-open {
+            background: transparent;
+            border: 0;
+        }
+
+        .pure-menu-heading {
+            color: #fff;
+            border-bottom: 1px solid #695f56;
+            font-family: 'Cuprum', 'Helvetica', sans-serif;
+            font-size: 28px;
+            text-transform: capitalize;
+
+            &:hover {
             }
-            .pure-button {
-                margin-left: 2px;
-                width: 120px;
+        }
+
+        li {
+            &.pure-menu-devider {
+                border-bottom: 1px solid #2b1c1f;
+                width: 80%;
+                margin: 10px auto;
             }
 
-            .pure-input, .pure-button {
-                font-size: 16px;
-                padding: 8px;
+            a {
+                color: #ccc1ab;
+                font-weight: 300;
+
+                &:hover {
+                    background-color: #695f56;
+                }
             }
         }
     }
