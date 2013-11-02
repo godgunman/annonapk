@@ -7,9 +7,6 @@
 #####
 APK_LOCATION=$1;
 DIR_NAME=`echo $APK_LOCATION | sed -En 's/\.apk$//p'`
-#SOOT_CLASSPATH="/usr/local/Cellar/android-sdk/r20.0.1/add-ons/addon-google_apis-google-16/libs/maps.jar:lib/slf4j-api-1.7.2.jar:lib/commons-codec-1.7.jar:/System/Library/Frameworks/JavaVM.framework/Classes/classes.jar:/usr/local/var/lib/android-sdk/platforms/android-16/android.jar"
-SOOT_CLASSPATH="/usr/local/Cellar/android-sdk/r20.0.1/add-ons/addon-google_apis-google-16/libs/maps.jar:/System/Library/Frameworks/JavaVM.framework/Classes/classes.jar:/usr/local/var/lib/android-sdk/platforms/android-16/android.jar:"`echo /Applications/eclipse/plugins/*.jar | tr ' ' ':'`:`echo lib/*.jar | tr ' ' ':'`
-#echo $SOOT_CLASSPATH
 
 #####
 # Translate AndroidManifest file from binary to human readable
