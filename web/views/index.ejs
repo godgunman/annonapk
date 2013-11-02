@@ -18,10 +18,10 @@
                 </header>
 
                 <div class="content">
-                    <form class="pure-form">
+                    <form action="/api/apk/analyze" method="POST" class="pure-form">
                         <fieldset>
-                            <input type="text" placeholder="Click to Select File" class="pure-input pure-fake-file">
-                            <input type="file" class="pure-input pure-file hide">
+                            <input type="text" placeholder="Click to Select File" class="pure-input pure-fake-file" disabled="disabled">
+                            <input type="file" id="apk" name="apk" class="pure-input pure-file hide">
                             <button type="submit" class="pure-button pure-button-primary">
                                 Upload
                                 <i class="fa fa-upload"></i>
