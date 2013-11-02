@@ -1,0 +1,16 @@
+# Node.gitignore copied from http://github.com/github/gitignore.
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+node_modules
