@@ -68,9 +68,11 @@ def main():
     f_name = sys.argv[1]
     f_md5 = md5Checksum(sys.argv[1]);
 
-    # force to delete directory by command (apktool d -f )
-    apktoolAnalyze(f_name, f_md5)
-    androguardAnalyze(f_name, f_md5)
+    dir_name = APK_ROOT + "/analytics/" + f_md5 + "/"
+    if not os.path.exists(dir_name): 
+        # force to delete directory by command (apktool d -f )
+        apktoolAnalyze(f_name, f_md5)
+        androguardAnalyze(f_name, f_md5)
 
 if __name__ == "__main__":
     main()
