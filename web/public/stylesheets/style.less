@@ -1,8 +1,61 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@import url(http://fonts.googleapis.com/css?family=Cuprum);
+
+/* layout */
+.pure-g-r {
+    padding-left: 150px;
+    left: 0;
 }
 
-a {
-  color: #00B7FF;
+nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+
+    left: 150px;
+    width: 150px;
+    margin-left: -150px;
+
+    overflow-y: auto;
+
+    .pure-menu {
+        .pure-menu-heading {
+            margin-bottom: 18px;
+        }
+    }
+}
+
+.pure-u-1 {
+    width: 100%;
+}
+
+/* theme */
+nav {
+    background-color: #3e3232;
+
+    .pure-menu {
+        &.pure-menu-open {
+            background: transparent;
+            border: 0;
+        }
+
+        .pure-menu-heading {
+            color: #fff;
+            border-bottom: 1px solid #695f56;
+            font-family: 'Cuprum', 'Helvetica', sans-serif;
+            font-size: 28px;
+
+            &:hover {
+            }
+        }
+
+        li {
+            a {
+                color: #ccc1ab;
+
+                &:hover {
+                    background-color: #695f56;
+                }
+            }
+        }
+    }
 }
