@@ -25,11 +25,15 @@ $(function() {
         /* Check the response status */  
         client.onreadystatechange = function() {
             if (client.readyState == 4 && client.status == 200) {
-                alert(client.statusText);
-                alert(client.response);
+                if(client.statusText == "OK") {
+                    alert(client.response);
+                }
             }
         }
         upload();
+        $('#loading').fadeIn();
+        $('.pure-fake-file').prop('disabled','true');
+        $('.pure-button').prop('disabled','true')
         return false;
     });
 });

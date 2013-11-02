@@ -28,3 +28,7 @@
   font-size: 16px;
   padding: 8px;
 }
+#loading {
+    display: block;
+    margin: 0.5em auto;
+}
