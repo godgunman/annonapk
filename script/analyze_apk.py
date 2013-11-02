@@ -57,7 +57,7 @@ def androguardAnalyze(f_name, f_md5):
 def apktoolAnalyze(f_name, f_md5):
     from subprocess import call
     dir_name = APK_ROOT + f_md5 + "/"
-    call(["/home/atdog/jdk1.7.0_45/bin/java", "-jar", "./apktool.jar", "d", "-f", f_name, dir_name])
+    call(["/home/atdog/jdk1.7.0_45/bin/java", "-jar", "/home/atdog/AnnonaPK/script/apktool.jar", "d", "-f", f_name, dir_name])
 
 def main():
     if len(sys.argv) != 2:
