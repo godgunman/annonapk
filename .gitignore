@@ -3,3 +3,4 @@
 apk
 *.pyc
 ./script/session/
+*.class

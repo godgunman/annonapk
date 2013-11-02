@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= title %></title>
+
+        <link rel='stylesheet' type="text/css" href='//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css'>
+        <link rel='stylesheet' type="text/css" href='/stylesheets/pure-min.css'>
+        <link rel='stylesheet' type="text/css" href='/stylesheets/style.css'>
+    </head>
+    <body>
+        <div class="pure-g-r">
+            <nav id="menu" class="pure-u">
+                <div class="pure-menu pure-menu-open">
+                    <a class="pure-menu-heading" href="/"><%= title %></a>
+
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">API</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="pure-u-1">
+                <header class="header">
+                    <h1>Extract APK</h1>
+                </header>
+
+                <div class="content">
+                    <form class="pure-form">
+                        <fieldset>
+                            <input type="text" placeholder="Yahoo" class="pure-input">
+                            <button type="submit" class="pure-button pure-button-primary">
+                                Search
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
