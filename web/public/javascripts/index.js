@@ -18,9 +18,13 @@ $(function() {
             type: 'post',
             success: function(data) {
                 $('#modal-loading').hide();
+
+                var $code = $('<pre><code></code></pre>').text(JSON.stringify(data, undefined, 2));
                 $('#modal-result')
-                    .append($('<pre></pre>').text(JSON.stringify(data, undefined, 2)))
+                    .append($code)
                     .show();
+                hljs.highlightBlock($code[0]);
+
                 $('#myModal').modal('show');
             },
             data: new FormData($('.pure-form')[0]),
