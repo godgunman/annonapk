@@ -107,6 +107,8 @@ def main():
         apktoolAnalyze(f_name, f_md5)
         result = androguardAnalyze(f_name, f_md5)
         print '{"result":"Done.", "error":null, "id":"' + f_md5 + '", "detail":"http://annonapk.com/apk/analytics/' + f_md5 + '", "apk_info":' + result + '}'
+        with open(dir_name + "result", "ab") as f:
+            f.write(result)
     except SystemExit:
         pass
     except:
