@@ -56,7 +56,7 @@ nav .pure-menu .pure-menu-heading {
   font-size: 28px;
   text-transform: capitalize;
 }
-nav .pure-menu li.pure-menu-devider {
+nav .pure-menu li.pure-menu-divider {
   border-bottom: 1px solid #2b1c1f;
   width: 80%;
   margin: 10px auto;
