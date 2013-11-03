@@ -22,7 +22,7 @@ var pass = require('./config/pass');
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.favicon(__dirname + '/public/images/icon.png'));
@@ -60,8 +60,9 @@ app.use('/apk',express.static(path.join(__dirname, '../apk')));
 
 app.get('/', index.index);
 app.get('/analyze', index.index);
-app.get('/pricing', index.pricing);
 app.get('/search', index.search);
+app.get('/browse', index.browse);
+app.get('/pricing', index.pricing);
 app.get('/apkinfo', index.apkinfo);
 
 // GET /auth/twitter

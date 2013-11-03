@@ -12,6 +12,12 @@ exports.search = function(req, res) {
     });
 };
 
+exports.browse = function(req, res) {
+    res.render('browse', {
+        title: appName
+    });
+};
+
 exports.pricing = function(req, res) {
     res.render('pricing', {
         title: appName
