@@ -6,7 +6,7 @@ $(function() {
                 .data('data', item)
                 .append(
                     $('<img>')
-                        .attr('src', item.link + '/res/drawable/icon.png')
+                        .attr('src', item.icon_link)
                 )
                 .append(
                     $('<span></span>')
