@@ -21,6 +21,10 @@ sub main {
             my $package = $json->{'package'};
             my $link = "http://annonapk.com/apk/analytics/$f";
             my $application_name = `cat $analyticsROOT/$f/AndroidManifest.xml | sed -En 's/<application.*android:label="\@string\\/([^ ]*?)".*/\\1/gp' | xargs -n 1 -I {} sed -nE 's/.*name="{}">(.*?)<.*/\\1/gp' $analyticsROOT/$f/res/values/strings.xml`;
+            $application_name =~ s/[\x0d\x0a]//g;
+            if($application_name eq '') {
+                $application_name = `cat $analyticsROOT/$f/AndroidManifest.xml | sed -En 's/<application.*android:label="([^"]*?)".*/\\1/gp' `;
+            }
             my $icon_path = `cat $analyticsROOT/$f/AndroidManifest.xml | sed -nE 's/.* android:icon="@([^ ]*)\\/([^ ]*?)".*/\\1\\n\\2/p' | xargs -n 2 sh -c 'find $analyticsROOT/$f/res/\$0* -name "\$1.*"' | head -1`;
             $application_name =~ s/[\x0d\x0a]//g;
             $icon_path =~ s/[\x0d\x0a]//g;
