@@ -20,7 +20,9 @@ sub main {
             my $json = json_file_to_perl ($resultFile);
             my $package = $json->{'package'};
             my $link = "http://annonapk.com/apk/analytics/$f";
-            my %apk_info = (package => $package, link => $link);
+            my $application_name = `cat ${analyticsROOT}/$f/res/values/strings.xml | sed -En 's/.*"app_name".*>(.*)<.*>/\\1/p'`;
+            $application_name =~ s/[\x0d\x0a]//g;
+            my %apk_info = (package => $package, link => $link, app_name => $application_name);
             push @$result, \%apk_info;
         }
     }
