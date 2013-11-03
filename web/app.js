@@ -12,6 +12,7 @@ var express = require('express'),
     analyzeApk = require('./routes/api/analyze_apk'),
     search = require('./routes/api/search'),
     download = require('./routes/api/download'),
+    list = require('./routes/api/list'),
     fs = require('fs'),
     mkdirp = require('mkdirp');
 
@@ -146,6 +147,7 @@ app.get('/user/logout', user.postLogin);
 
 app.get('/api/apk/search', search.index);
 app.get('/api/apk/download', download.index);
+app.get('/api/apk/list', list.index);
 
 // we need the fs module for moving the uploaded files
 app.post('/api/apk/analyze', analyzeApk.run);
