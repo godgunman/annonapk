@@ -6,6 +6,12 @@ exports.index = function(req, res) {
     });
 };
 
+exports.search = function(req, res) {
+    res.render('search', {
+        title: appName
+    });
+};
+
 exports.pricing = function(req, res) {
     res.render('pricing', {
         title: appName
