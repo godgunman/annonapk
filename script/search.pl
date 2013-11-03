@@ -20,7 +20,8 @@ sub main {
             my $json = json_file_to_perl ($resultFile);
             my $package = $json->{'package'};
             my $link = "http://annonapk.com/apk/analytics/$f";
-            my $application_name = `cat ${analyticsROOT}/$f/res/values/strings.xml | sed -En 's/.*"app_name".*>(.*)<.*>/\\1/p'`;
+            my $application_name = `sed -En 's/<application.*android:label="\@string\\/([^ ]*?)".*/\\1/gp' ${analyticsROOT}/$f/AndroidManifest.xml| xargs -n 1 -I "{}" grep {} ${analyticsROOT}/$f/res/values/strings.xml | sed -En 's/.*"app_name".*>(.*)<.*>/\\1/p'`;
+            print $application_name;
             my $icon_path = `cat ${analyticsROOT}/$f/AndroidManifest.xml | sed -nE 's/.* android:icon="@[^ ]*\\/([^ ]*?)".*/\\1/p' | xargs -n 1 -I {} find ${analyticsROOT}/$f/res/drawable* -name '{}.*' | sort -n| head -1`;
             $application_name =~ s/[\x0d\x0a]//g;
             $icon_path =~ s/[\x0d\x0a]//g;
