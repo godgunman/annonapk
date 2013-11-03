@@ -25,7 +25,10 @@ sub main {
         }
     }
     closedir($D);
-    print to_json($result);
+    my $json = {};
+    $json->{'result'} = $result;
+    $json->{'error'} = undef;
+    print to_json($json);
 }
 
 main;
