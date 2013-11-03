@@ -21,8 +21,9 @@ sub main {
             my $package = $json->{'package'};
             my $link = "http://annonapk.com/apk/analytics/$f";
             my $application_name = `cat ${analyticsROOT}/$f/res/values/strings.xml | sed -En 's/.*"app_name".*>(.*)<.*>/\\1/p'`;
+            my $icon_path = `cat ${analyticsROOT}/$f/AndroidManifest.xml | sed -nE 's/.* android:icon="@[^ ]*\\/([^ ]*?)" .*/\\1/p' | xargs -n 1 -I {} find ${analyticsROOT}/$f/res/drawable* -name '{}.*' | sort -n| head -1`;
             $application_name =~ s/[\x0d\x0a]//g;
-            my %apk_info = (package => $package, link => $link, app_name => $application_name);
+            my %apk_info = (package => $package, link => $link, app_name => $application_name, icon_link => $icon_path);
             push @$result, \%apk_info;
         }
     }
