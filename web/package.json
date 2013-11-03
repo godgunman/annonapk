@@ -17,6 +17,7 @@
     "passport-facebook": "*",
     "connect-ensure-login": "*",
     "bcrypt-nodejs": "*",
-    "mkdirp": "*"
+    "mkdirp": "*",
+    "mime": "*"
   }
 }
