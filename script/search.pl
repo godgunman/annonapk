@@ -16,11 +16,13 @@ sub main {
     while (my $f = readdir($D)) {
         next if $f =~ m/^\./;
         my $resultFile = $analyticsROOT."/".$f."/result";
-        my $json = json_file_to_perl ($resultFile);
-        my $package = $json->{'package'};
-        my $link = "http://annonapk.com/apk/analytics/$f";
-        my %apk_info = (package => $package, link => $link);
-        push @$result, \%apk_info;
+        if(-f $resultFile) {
+            my $json = json_file_to_perl ($resultFile);
+            my $package = $json->{'package'};
+            my $link = "http://annonapk.com/apk/analytics/$f";
+            my %apk_info = (package => $package, link => $link);
+            push @$result, \%apk_info;
+        }
     }
     closedir($D);
     print to_json($result);
