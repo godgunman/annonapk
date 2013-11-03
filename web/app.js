@@ -61,6 +61,7 @@ app.get('/', index.index);
 app.get('/analyze', index.index);
 app.get('/pricing', index.pricing);
 app.get('/search', index.search);
+app.get('/apkinfo', index.apkinfo);
 
 // GET /auth/twitter
 //   Use passport.authenticate() as route middleware to authenticate the

@@ -101,17 +101,17 @@ def main():
         if os.path.exists(dir_name): 
             a, d, dx = read_apk(f_name, f_md5)
             result = getAPKInformationJson(a, d)
-            print '{"result":"Analytics already exist.", "apk_info":%s}' % result
+            print '{"result":"Analytics already exist.", "error":null, "id":"' + f_md5 + '", "detail":"http://annonapk.com/apk/analytics/' + f_md5 +'", "apk_info":' + result + '}'
             sys.exit(1)
         # force to delete directory by command (apktool d -f )
         apktoolAnalyze(f_name, f_md5)
         result = androguardAnalyze(f_name, f_md5)
-        print '{"result":"Done.", "apk_info":%s}' % result
+        print '{"result":"Done.", "error":null, "id":"' + f_md5 + '", "detail":"http://annonapk.com/apk/analytics/' + f_md5 + '", "apk_info":' + result + '}'
     except SystemExit:
         pass
     except:
         sys.stderr.write("Unexpected error: %s\n" % sys.exc_info()[0])
-        print '{"result":"Parse Error."}'
+        print '{"result":null, "error":"Parse error."}'
 
 if __name__ == "__main__":
     main()

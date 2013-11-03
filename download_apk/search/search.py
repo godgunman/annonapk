@@ -29,7 +29,10 @@ if __name__ == "__main__":
         apk["id"] = app["id"]
         apk["packagename"] = app["packagename"]
         apklist.append(apk)
-    print json.dumps(apklist)
+    r = {}
+    r["error"] = None
+    r["result"] = apklist
+    print json.dumps(r)
     exit()
 
     # Check if pkg name match
