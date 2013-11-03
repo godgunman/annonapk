@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Browse APK | <%= title %></title>
+
+        <% include includeGA %>
+        <% include includeStylesheets %>
+        <link rel='stylesheet' href='/stylesheets/browse.css'>
+    </head>
+    <body>
+        <% include includeForkGithub %>
+
+        <div class="pure-g-r">
+            <% include includeNavbar %>
+
+            <div class="pure-u-1">
+                <ul id="result-list">
+                </ul>
+            </div>
+        </div>
+
+        <% include includeJavascripts %>
+        <script src="/javascripts/browse.js"></script>
+    </body>
+</html>

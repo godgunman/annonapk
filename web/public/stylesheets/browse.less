@@ -1,0 +1,41 @@
+#result-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 40px;
+
+    li {
+        float: left;
+        display: inline-block;
+        background-color: #ccc1ab;
+        margin: 10px;
+        padding: 15px;
+
+        width: 300px;
+        height: 64px;
+
+        &:hover {
+            background-color: #695f56;
+            cursor: pointer;
+        }
+
+        img {
+            float: left;
+            width: 64px;
+            height: 64px;
+        }
+
+        span {
+            padding-left: 79px;
+            display: block;
+
+            &.title {
+                font-size: 24px;
+                padding-top: 10px;
+            }
+            &.package {
+                font-size: 12px;
+                font-weight: 300;
+            }
+        }
+    }
+}
