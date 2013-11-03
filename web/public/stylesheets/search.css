@@ -32,3 +32,25 @@
   margin: 0 auto;
   display: block;
 }
+#modal-result div.result {
+  padding: 10px 0px;
+}
+#modal-result div.result span {
+  color: #3e3232;
+  display: inline-block;
+}
+#modal-result div.result span.title {
+  font-size: 24px;
+}
+#modal-result div.result span.version {
+  color: #d83b8c;
+  margin-left: 10px;
+}
+#modal-result div.result span.package {
+  color: #695f56;
+  display: block;
+  margin: 10px 0px;
+}
+#modal-result div.result button {
+  display: block;
+}
