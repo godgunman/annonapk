@@ -6,7 +6,7 @@ $(function() {
                 .data('data', item)
                 .append(
                     $('<img>')
-                        .attr('src', '/apk/analytics/' + item.icon_link)
+                        .attr('src', item.icon_link)
                 )
                 .append(
                     $('<span></span>')
