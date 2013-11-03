@@ -1,15 +1,25 @@
-AnnonaPK
-========
+AnnonaPK API
+============
 
-Usage
-=====
+AnnonaPK is an API service to search / download / analyze .apk files!
 
-- `apk.sh`: 拿來解把 .apk 檔解開的 script
+Analyze Apk
+-----------
 
-- `download_apk/search/search.py`
+Extract information from given .apk file.
 
-        ./download_apk/search/search.py [packge_name_to_search|explicit_packge_name]
+    POST /api/apk/analyze
 
-- `download_apk/download/download.sh`
+Search Apk
+----------
 
-        ./download_apk/download/download.sh app_id apk_filename
+Search apps on Google Play.
+
+    GET /api/apk/search?q=[app_to_search]
+
+Download Apk
+------------
+
+Download .apk file from Google Play of given id.
+
+    GET /api/apk/download?id=[app_id_to_download]
