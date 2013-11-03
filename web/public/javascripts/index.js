@@ -11,6 +11,7 @@ $(function() {
     $('.pure-form').submit(function() { 
         $('#modal-loading').show();
         $('#modal-result').empty();
+        $('#modal-detail-button').prop('disabled', true);
         $('#myModal').modal('show');
 
         $.ajax({
@@ -23,7 +24,15 @@ $(function() {
                 $('#modal-result')
                     .append($code)
                     .show();
+
                 hljs.highlightBlock($code[0]);
+
+                $('#modal-detail-button')
+                    .data('data', data)
+                    .click(function() {
+                        $(window).prop('location', $(this).data('data').detail);
+                    })
+                    .prop('disabled', false);
 
                 $('#myModal').modal('show');
             },
