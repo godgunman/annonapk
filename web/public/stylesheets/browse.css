@@ -4,7 +4,32 @@
   width: 80%;
   margin: 40px 10%;
 }
+#result-list li {
+  display: inline-block;
+  background-color: #ccc1ab;
+  margin: 10px;
+  padding: 15px;
+  width: 240px;
+  height: 64px;
+}
+#result-list li:hover {
+  background-color: #695f56;
+  cursor: pointer;
+}
 #result-list li img {
+  float: left;
   width: 64px;
   height: 64px;
+}
+#result-list li span {
+  padding-left: 79px;
+  display: block;
+}
+#result-list li span.title {
+  font-size: 24px;
+  padding-top: 10px;
+}
+#result-list li span.package {
+  font-size: 12px;
+  font-weight: 300;
 }
