@@ -16,7 +16,6 @@
                 <header class="header">
                     <h1>Extract APK</h1>
                 </header>
-                <img src="/images/gif-load.gif" id="loading" style="display: None;"/>
 
                 <div class="content">
                     <form action="/api/apk/analyze" method="POST" class="pure-form" enctype="multipart/form-data">
@@ -30,6 +29,20 @@
                         </fieldset>
                     </form>
                 </div>
+
+            </div>
+        </div>
+
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+            <div class="modal-header">
+                <h2 id="myModalLabel">APK Information</h2>
+            </div>
+            <div class="modal-body">
+                <img id="modal-loading" src="/images/gif-load.gif">
+                <div id="modal-result"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="pure-button" data-dismiss="modal" aria-hidden="true">Close</button>
             </div>
         </div>
 
