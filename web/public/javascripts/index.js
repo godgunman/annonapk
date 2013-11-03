@@ -30,7 +30,7 @@ $(function() {
                 $('#modal-detail-button')
                     .data('data', data)
                     .click(function() {
-                        $(window).prop('location', $(this).data('data').detail);
+                        window.open($(this).data('data').detail);
                     })
                     .prop('disabled', false);
 

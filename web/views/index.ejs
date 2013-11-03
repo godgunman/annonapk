@@ -5,10 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><%= title %></title>
 
+        <% include includeGA %>
         <% include includeStylesheets %>
         <link rel='stylesheet' href='/stylesheets/index.css'>
     </head>
     <body>
+        <% include includeForkGithub %>
+
         <div class="pure-g-r">
             <% include includeNavbar %>
 
