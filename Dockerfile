@@ -7,6 +7,6 @@ RUN \
   default-jre
 
 # apktool.jar
-curl -L -o /usr/local/bin/apktool.jar https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.0.0.jar
+RUN curl -L -o /usr/local/bin/apktool.jar https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.0.0.jar
 
 ENTRYPOINT ["java", "-jar", "/usr/local/bin/apktool.jar"]
